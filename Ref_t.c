@@ -65,7 +65,7 @@ double  dT;
 float VCF;
 
   if((type_liq > 6) || (type_liq < 1)) return 1.;
-  if( (D_ref > 1000) || (D_ref < 600)  ) return 1;
+  if( (D_ref > 1500) || (D_ref < 500)  ) return 1;
 //  dT=Temp-T_ref;
     dT=Temp-15.;
   if(type_liq != Kerosene)
@@ -95,7 +95,7 @@ float f_get_gamma ( float Temp, float D_ref_15)
 
 float  gamma;
 
-    if( (D_ref_15 > 1000) || (D_ref_15 < 600)  ) return 0;
+    if( (D_ref_15 > 1500) || (D_ref_15 < 500)  ) return 0;
   gamma = 0.001 *  exp( C1 + C2*Temp+ ((C3+C4*Temp)/(D_ref_15*D_ref_15 ) ) );
  return gamma;
 }

@@ -96,6 +96,14 @@ void EnterValue (float min, float max)
                 MmiPrintf(7,3,"%s", char_float);
             }
         }
+        if(key == SHT_9)
+        {
+            if(strlen(char_float) < 1)
+            {
+                strcat(char_float,"-");
+                MmiPrintf(7,3,"%s", char_float);
+            }
+        }
         if(key == SHT_4)
         {
             if(char_float > 0)
@@ -176,8 +184,8 @@ void DisplayMMI()
                         case 6: MmiPuts(0,11,  "Нефтепродукт  : Lubric. Oils"); break;                       
                      } 
                      break;
-            case 11: MmiPrintf(0,13, "Плотность 15С : %3.3f кг/м3", dens_15); break;
-            case 12: MmiPrintf(0,14, "Объем при 15С : %3.3f м3", vol_15); break;
+            case 11: MmiPrintf(0,13, "Плотность 15С: %3.3f кг/м3", dens_15); break;
+            case 12: MmiPrintf(0,14, "Объем при 15С: %3.3f м3", vol_15); break;
             case 13: MmiPuts(0,15, "ESC  Возврат"); break;
             case 14: display++; str_dis=0; break;
         }
@@ -205,7 +213,7 @@ void DisplayMMI()
         }
         break;
     case 4: //плотность ввод
-        EnterValue(600,1100);
+        EnterValue(599,1165);
         if(enter_f > (-555)) dens = enter_f;
         break;
     case 5:  //температура отображение
@@ -220,7 +228,7 @@ void DisplayMMI()
         }
         break;
     case 6:  //температура ввод
-        EnterValue(-40,50);
+        EnterValue(-45,60);
         if(enter_f > (-555)) temp = enter_f;
         break;
     case 7:  //давление отображение
